@@ -5,39 +5,29 @@ Bacteria [] big;
  	//initialize bacteria variables here   
  	size(300,300);
  	big = new Bacteria[100];
+ 	for(int i = 0; i < big.length; i++){
+ 		big[i] = new Bacteria();
+ 	}
  }   
  void draw()   
  {    
- 	big.move();
- 	big.show();
+ 	for(int i = 0; i < big.length ; i++){
+ 		big[i].show();
+ 		big[i].move();
+	}
  }  
  class Bacteria    
  {     
  	//lots of java!   
  	int myX, myY, colr;
- 	Bacteria(){
- 		myX = ;
- 		myY = ;
+ 	Bacteria(){ 	
+ 		myX = myY = width/2;
  	}
  	void move(){
- 		int direction = (int)(Math.random()*4);
-		if(direction == 0){
-		   x = x + 20; //right
-		}
-		else if(direction == 1){
-		   x = x - 20; //left
-		}
-		else if(direction == 2){
-		   y = y + 20; //down
-		}
-		else // direction must be 3
-		{
-		y = y - 20; //up
-  }
-
-
+ 		myX = myX + (int)(Math.random()*18-9);
+ 		myY = myY + (int)(Math.random()*18-9);
  	}
  	void show(){
-
+ 		ellipse(myX,myY,30,30);
  	}
  }    
